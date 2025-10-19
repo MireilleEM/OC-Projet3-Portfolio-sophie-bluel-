@@ -9,6 +9,9 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
+	<script src="scripts/config.js" defer></script>
+	<script src="scripts/script.js" defer></script>
+	<script src="scripts/main.js" defer></script>
 </head>
 <body>
 <header>
@@ -35,7 +38,23 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		<div id = "filtres">
+			<h2>Mes Projets</h2>
+			<div class = "filtres">
+				<form method="get" action="">   
+                    <div class="boutons">             
+     <!-- Bouton "Tous"-->
+                        <button type="button" class="filter-btn active">Tous</button>
+    <!-- Bouton "Objet" -->
+                        <button type="button" class="filter-btn active">Objet</button>
+    <!-- Bouton "Appartements"-->
+                        <button type="button" class="filter-btn active">Appartements</button>
+    <!-- Bouton "Hôtels et restaurants" -->
+                        <button type="button" class="filter-btn">Hôtels et restaurants</button>
+                    </div>                 
+                </form>
+			</div>
+		</div>
 		<div class="gallery">
 			<figure>
 				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">

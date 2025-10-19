@@ -15,174 +15,255 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+time, mark, audio, video, button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
+footer, header, hgroup, menu, nav, section{
+    display: block;
 }
 body {
-	line-height: 1;
+    line-height: 1;
 }
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
 blockquote, q {
-	quotes: none;
+    quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+    content: '';
+    content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 /** end reset css**/
 body {
-	max-width: 1140px;
-	margin:auto;
-	font-family: 'Work Sans' ;
-	font-size: 14px;
+    max-width: 1140px;
+    margin:auto;
+    font-family: 'Work Sans' ;
+    font-size: 14px;
+    background-color: #FFFEF8;
 }
 header {
-	display: flex;
-	justify-content: space-between;
-	margin: 50px 0
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0
 }
 section {
-	margin: 50px 0
+    margin: 50px 0
 }
 
 h1{
-	display: flex;
-	flex-direction: column;
-	font-family: 'Syne';
-	font-size: 22px;
-	font-weight: 800;
-	color: #B1663C
+    display: flex;
+    flex-direction: column;
+    font-family: 'Syne';
+    font-size: 22px;
+    font-weight: 800;
+    color: #B1663C
 }
 
 h1 > span {
-	font-family: 'Work Sans';
-	font-size:10px;
-	letter-spacing: 0.1em;
+    font-family: 'Work Sans';
+    font-size:10px;
+    letter-spacing: 0.1em;
 ;
 }
-
+/*figcaption p{
+    font-family: 'Work Sans';
+    font-size:13px;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+}*/
 h2{
-	font-family: 'Syne';
-	font-weight: 700;
-	font-size: 30px;
-	color: #1D6154
+    font-family: 'Syne';
+    font-weight: 700;
+    font-size: 30px;
+    color: #1D6154
 }
 nav ul {
-	display: flex;
-	align-items: center;
-	list-style-type: none;
+    display: flex;
+    align-items: center;
+    list-style-type: none;
 
 }
 nav li {
-	padding: 0 10px;
-	font-size: 1.2em;
+    padding: 0 10px;
+    font-size: 1.2em;
 }
 
 li:hover {
-	color: #B1663C;
+    color: #B1663C;
 }
 #introduction {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
 }
 #introduction figure {
-	flex: 1
+    flex: 1
 }
 #introduction img {
-	display: block;
-	margin: auto;
-	width: 80%;
+    display: block;
+    margin: auto;
+    width: 80%;
 }
 
 #introduction article {
-	flex: 1
+    flex: 1
 }
 #introduction h2 {
-	margin-bottom: 1em;
+    margin-bottom: 1em;
 }
 
 #introduction p {
-	margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
 }
 #portfolio h2 {
-	text-align: center;
-	margin-bottom: 1em;
+    text-align: center;
+    margin-bottom: 1em;
 }
 .gallery {
-	width: 100%;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-column-gap: 20px;
-	grid-row-gap: 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
 }
 
 .gallery img {
-	width: 100%;
+    width: 100%;
 
 }
 #contact {
-	width: 50%;
+    width: 50%;
+margin: auto;
+}
+#login {
+    width: 30%;
 margin: auto;
 }
 #contact > * {
-	text-align: center;
+    text-align: center;
+
+}
+#login > * {
+    text-align: center;
 
 }
 #contact h2{
-	margin-bottom: 20px;
+    margin-bottom: 20px;
+}
+#login h2{
+    margin-bottom: 20px;
 }
 #contact form {
-	text-align: left;
-	margin-top:30px;
-	display: flex;
-	flex-direction: column;
+    text-align: left;
+    margin-top:30px;
+    display: flex;
+    flex-direction: column;
+}
+#login form {
+    text-align: left;
+    margin-top:30px;
+    display: flex;
+    flex-direction: column;
 }
 
 #contact input {
-	height: 50px;
-	font-size: 1.2em;
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+    height: 50px;
+    font-size: 1.2em;
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#login input {
+    height: 50px;
+    font-size: 1.2em;
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 #contact label {
-	margin: 2em 0 1em 0;
+    margin: 2em 0 1em 0;
+}
+#login label {
+    margin: 2em 0 1em 0;
 }
 #contact textarea {
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
 input[type="submit"]{
-	font-family: 'Syne';
-	font-weight: 700;
-	color: white;
-	background-color: #1D6154;
-	margin : 2em auto ;
-	width: 180px;
-	text-align: center;
-	border-radius: 60px ;
+    font-family: 'Syne';
+    font-weight: 700;
+    color: white;
+    background-color: #1D6154;
+    margin : 2em auto ;
+    width: 180px;
+    text-align: center;
+    border-radius: 60px ;
+}
+/*
+.boutons{
+    display: flex;
+    margin: 51px 0 51px 0;
+    gap: 10px;
+}
+button{
+    height: 37px;
+    font-family: 'Syne';
+    font-weight: 700;
+    color: #1D6154;
+    background-color: transparent;
+    width: fit-content;
+    min-width: 100px;
+    margin : 2em auto ;
+    padding: 10px;
+    text-align: center;
+    border-radius: 60px ;
+    border: solid 1px#1D6154;
+}
+button:hover{
+    color: white;
+    background-color: #1D6154;
+}
+    */
+.boutons {
+    display: flex;
+    justify-content: center; /* Centre les boutons horizontalement */
+    margin: 51px 0; /* Réduit la marge verticale */
+    gap: 10px; /* Supprime l'espace entre les boutons */
+}
+
+button {
+    height: 37px;
+    font-family: 'Syne';
+    font-weight: 700;
+    color: #1D6154;
+    background-color: transparent;
+    padding: 10px 20px; /* Ajuste le padding pour un rendu plus compact */
+    text-align: center;
+    border-radius: 60px;
+    border: solid 1px #1D6154;
+    margin: 0; /* Supprime les marges autour des boutons */
+    flex-shrink: 0; /* Empêche les boutons de rétrécir */
+}
+
+button:hover {
+    color: white;
+    background-color: #1D6154;
 }
 
 footer nav ul {
-	display: flex;
-	justify-content: flex-end;
-	margin: 2em
+    display: flex;
+    justify-content: flex-end;
+    margin: 2em
 }
-

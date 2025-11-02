@@ -41,14 +41,25 @@ async function chargerCategories() {
         // Boucle for pour parcourir chaque projet
         for (let i = 0; i < categories.length; i++) {
             const categorie = categories[i];
-            boutonsHTML += `<button type="button" class="filter-btn active">${categorie.name}</button>`;
-           
+            boutonsHTML += `<button type="button" class="filter-btn active">${categorie.name}</button>`;          
     }
-
         // On ajoute les nouvelles figures à la galerie sans vider le contenu existant
         divBoutons.innerHTML += boutonsHTML;
-        
+        // On ajoute les boutons au DOM
+        // divBoutons.innerHTML = boutonsHTML;
 
+// On sélectionne maintenant les boutons créés
+const allButtons = document.querySelectorAll(".filter-btn");
+
+// Logique pour afficher la catégorie concernée
+for (let j = 0; j < allButtons.length; j++) {
+allButtons[j].addEventListener("click", function() {
+    //let filtre = allButtons[j].textContent; 
+    let filtre = this.textContent; // On récupère la catégorie
+    console.log(filtre);    
+});
+    }
 }
-
+// On lance la fonction
 chargerCategories();
+

@@ -48,7 +48,7 @@ async function chargerCategories() {
     // Boucle for pour parcourir chaque projet
     for (let i = 0; i < categories.length; i++) {
         const categorie = categories[i];
-        boutonsHTML += `<button type="button" class="filter-btn active">${categorie.name}</button>`;          
+        boutonsHTML += `<button type="button" class="filter-btn">${categorie.name}</button>`;          
     }
 
     // On ajoute les nouvelles figures à la galerie sans vider le contenu existant

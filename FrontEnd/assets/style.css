@@ -265,10 +265,10 @@ button:hover {
     color: white;
     background-color: #1D6154;
 }
-/*.active {
+.active {
     color: white;
     background-color: #1D6154;
-}*/
+}
 
 footer nav ul {
     display: flex;

@@ -97,5 +97,53 @@ chargerProjets();
 chargerCategories();
 
 
+//MODALE
+// Récupère les éléments du DOM
+const popup = document.querySelector("#popup");
+const openPopup = document.querySelector("#openPopup");
+const fermeture = document.querySelector(".close");
+
+// Ouvre la modale
+openPopup.addEventListener("click", () => {
+  popup.style.display = "block";
+  afficherProjetsPopup(tousLesProjets);
+});
+
+function afficherProjetsPopup(tousLesProjets) {
+  const galleryPopup = document.querySelector(".galleryPopup");
+  let figuresHTML = "";
+  for (let i = 0; i < tousLesProjets.length; i++) {
+            const monprojet = tousLesProjets[i];
+            figuresHTML += `
+                <figure class="miniature">
+                    <img src="${monprojet.imageUrl}" alt="${monprojet.title}">
+                    <i id="poubelle" class="fa-regular fa-trash-alt" aria-hidden="true"></i>
+                </figure>
+            `;
+}
+        // On ajoute les nouvelles figures à la galerie sans vider le contenu existant
+        galleryPopup.innerHTML = figuresHTML;
+
+};
+
+
+// Ferme la modale (bouton ×)
+fermeture.addEventListener("click", () => {
+  popup.style.display = "none";
+});
+
+// Ferme la modale si l'utilisateur clique en dehors
+window.addEventListener("click", (event) => {
+  if (event.target === popup) {
+    popup.style.display = "none";
+  }
+});
+
+// Ferme la modale avec la touche Échap
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    popup.style.display = "none";
+  }
+});
 
 

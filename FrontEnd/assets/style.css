@@ -28,9 +28,94 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section{
     display: block;
 }
-body {
-    line-height: 1;
+.bandeau{
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    height: 59px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%); /* Centre le bandeau par rapport à la page */
 }
+/******* Style de la modale (masquée par défaut) ******/
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+}
+
+.popup-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  width: 50%;
+  max-width: 500px;
+  max-height: 600px;
+  border-radius: 8px;
+  position: relative;
+  text-align: center;
+  padding: auto 20% auto 20%;
+}
+
+.galleryPopup{    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 4px;
+    grid-row-gap: 15px;
+    justify-content: center;
+    margin: 30px 50px 30px 50px;
+}
+
+.miniature{
+    position: relative;
+    display: inline-block; /* Pour que le conteneur s'adapte à la taille de l'image */
+}
+
+.gallery img {
+    width: 100%;
+
+}
+.galleryPopup img {   
+    height: 100px;
+    object-fit: cover; /* Conserve les proportions de l'image */
+}
+.fa-trash-alt{
+    width: 17px;
+    height: 17px;
+    background-color: black;
+    color: white;
+    justify-content: center;
+    align-items: center; 
+    position: absolute;
+    top: 5px;       /* Position en haut */
+    right: 5px;     /* Position à droite */  
+}
+
+.trait{
+    border-bottom: 1px solid #B3B3B3;
+    margin: 10px 60px 30px 60px;
+    justify-content: center;
+}
+
+/* Bouton de fermeture */
+.close {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/******* fin modale ******/
+
 ol, ul {
     list-style: none;
 }
@@ -53,6 +138,7 @@ body {
     font-family: 'Work Sans' ;
     font-size: 14px;
     background-color: #FFFEF8;
+    line-height: 1;
 }
 header {
     display: flex;
@@ -76,7 +162,11 @@ h1 > span {
     font-family: 'Work Sans';
     font-size:10px;
     letter-spacing: 0.1em;
-;
+}
+h3{
+   font-family: 'Work Sans';
+    font-size:26px;
+    font-weight: 400;
 }
 /*figcaption p{
     font-family: 'Work Sans';
@@ -131,6 +221,21 @@ li :hover {
 #introduction p {
     margin-bottom: 0.5em;
 }
+/******* Titre pour modifier les projets (page html_edit) *****/
+.modif {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    margin-bottom: 2em;
+}
+#modif {
+    display: flex;
+    flex-direction: row;
+    gap: 31px;
+    align-items: center;
+    justify-content: center;
+}
+/***********/
 #portfolio h2 {
     text-align: center;
     margin-bottom: 1em;
@@ -143,13 +248,16 @@ li :hover {
     grid-row-gap: 20px;
 }
 
-.gallery img {
-    width: 100%;
+/*.popup-content{
+    display: flex;
+    flex-direction: column;
+    gap: 46px;
+    justify-content: center;
+}*/
 
-}
 #contact {
     width: 50%;
-margin: auto;
+    margin: auto;
 }
 #login {
     width: 30%;

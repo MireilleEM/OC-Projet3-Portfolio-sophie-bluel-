@@ -10,8 +10,9 @@
     <meta name="description" content="">
     <link rel="stylesheet" href="./assets/style.css">
     <script src="scripts/config.js" defer></script>
-    <script src="scripts/script.js" defer></script>
-    <script src="scripts/main.js" defer></script>
+    <!--<script src="scripts/script.js" defer></script>
+    <script src="scripts/main.js" defer></script>-->
+    <script src="scripts/script_login.js" defer></script>
 </head>
 <header>
     <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
@@ -28,12 +29,14 @@
    <main>
     <section id="login">
         <h2>Log in</h2>
-        <form action="#" method="post">
+        <form action="#" method="post" id="formAuth">
             <label for="email">Email</label>
             <input type="email" name="email" id="email">
-            <label for="name">Mot de passe</label>
-            <input type="text" name="name" id="name">
-            <input type="submit" value="Se connecter">
+            <!--<label for="name">Mot de passe</label>
+            <input type="text" name="name" id="name">-->
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password" id="password">
+            <input type="submit" value="Se connecter" id="connectButton">
             <a id="mdp_forget"><p>Mot de passe oublié</p></a>
         </form>
     </section>

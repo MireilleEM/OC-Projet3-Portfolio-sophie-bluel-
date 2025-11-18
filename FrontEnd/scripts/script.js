@@ -1,3 +1,4 @@
+/*import { logged } from 'main.js';*/
 let tousLesProjets = []; // Variable globale pour pouvoir stocker et atteindre les projets
 
 // Fonction pour récupérer et afficher les projets
@@ -146,4 +147,9 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+function desactiverBouton(){
+   document.querySelector("btn").disabled = true;   // Désactiver
+  // document.getElementById("btn").disabled = false; // Réactiver
+}
+ 
 

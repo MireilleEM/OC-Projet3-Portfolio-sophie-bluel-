@@ -195,6 +195,10 @@ li a{
     color: inherit;
 }
 
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 li :hover {
     color: #B1663C;
 }

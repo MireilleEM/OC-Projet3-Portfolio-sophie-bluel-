@@ -1,19 +1,18 @@
 const connectButton = document.querySelector("#connectButton");
-const emailInput = document.querySelector("#email");
-const mdpInput = document.querySelector("#name");
+//const emailInput = document.querySelector("#email").value;
+//const mdpInput = document.querySelector("#password").value;
 
-/*connectButton.addEventListener(click,function(){
-  let email = emailInput.value;
-  let mdp = mdpInput.value;
-  const email = emailInput.value;
-const mdp = mdpInput.value;
-})*/
+
 const formAuth =document.querySelector("#formAuth")
-async function authentification(){
-    
+async function authentification(){  
+    const email = document.querySelector("#email").value;
+    const password = document.querySelector("#password").value;  
     const identifiants = {
-            email: document.querySelector("[name=email]").value,
-            password: document.querySelector("[name=password]").value
+            email,
+            password
+            // on peut aussi faire comme çà:
+            //email: document.querySelector("[name=email]").value,
+            //password: document.querySelector("[name=password]").value
         };
     const chargeUtile = JSON.stringify(identifiants);
     const reponse = await fetch("http://localhost:5678/api/users/login",{
@@ -22,20 +21,23 @@ async function authentification(){
         body: chargeUtile
      });
      alert("connexion réussie");
-     // Redirige vers une page protégée
-     window.location.href = './index_edit.html';
+     const data = await reponse.json();
+     
+  // Stocke les informations dans le localStorage:
+    localStorage.setItem('userId', data.userId);
+    localStorage.setItem('token', data.token);
+   
+     // Redirige vers une page protégée par authentification
+     window.location.href = './index.html';
+     
 }
-//formAuth.addEventListener('submit', async function(event){
 formAuth.addEventListener('submit', async function(event){
     event.preventDefault();
     authentification();
+    
 });
 
-/*const inputPrixMax = document.querySelector('#prix-max')
-connectButton.addEventListener('input', function(){
-    const email = pieces.filter(function(piece){
-        return piece.prix <= inputPrixMax.value;
-    });*/
+
 /*async function authentification(){
     const formAuth =document.querySelector("#formAuth")
     formAuth.addEventListener('submit', async function(event){

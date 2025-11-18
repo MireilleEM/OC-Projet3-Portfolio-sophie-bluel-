@@ -1,4 +1,54 @@
 /*fonctions principales*/
+/*export function logged() {
+  if (isLogged()) {
+   const statut = document.querySelector("#statut");
+   statut.textContent = "logout"; 
+} else {
+  statut.textContent = "login"; 
+}
+   const statut = document.querySelector("#statut");
+   statut.textContent = "logout";
+}
+
+
+export function logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    window.location.href = './login.html'; // Redirige vers la page de connexion
+}
+
+export function isLogged() {
+    return localStorage.getItem('token') !== null;
+}
+
+
+  async function fetchProtectedData() {
+    const userId = localStorage.getItem('userId');
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+        alert("Vous n'êtes pas connecté !");
+        return;
+    }
+
+    try {
+        const response = await fetch(`http://localhost:5678/api/users/${userId}/projects`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        });
+
+        const projects = await response.json();
+        console.log("Projets de l'utilisateur :", projects);
+
+    } catch (error) {
+        console.error("Erreur lors de la récupération des projets :", error);
+        alert("Erreur lors de la récupération des projets.");
+    }
+}
+
 /*[
   {
     "id": 1,

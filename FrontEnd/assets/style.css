@@ -193,11 +193,13 @@ nav li {
 li a{
     text-decoration: none;
     color: inherit;
+    cursor: pointer;
 }
 
-.disabled {
+.admin {
   opacity: 0.5;
   cursor: not-allowed;
+  pointer-events: none;
 }
 li :hover {
     color: #B1663C;
@@ -375,6 +377,7 @@ button {
     border: solid 1px #1D6154;
     margin: 0; /* Supprime les marges autour des boutons */
     flex-shrink: 0; /* Empêche les boutons de rétrécir */
+    cursor: pointer;
 }
 
 button:hover {

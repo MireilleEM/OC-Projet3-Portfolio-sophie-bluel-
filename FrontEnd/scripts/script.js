@@ -1,4 +1,34 @@
 /*import { logged } from 'main.js';*/
+
+const statut = document.querySelector("#statut");
+const token = localStorage.getItem("token")
+const lienActif = document.querySelector("a.admin")   // récupérer le statut actuel du lien
+
+document.addEventListener("DOMContentLoaded", () => {
+    if (token) {
+        connexion();
+    }
+});
+
+function connexion(){
+    lienActif.classList.remove("admin")// rend actif le lien
+    statut.textContent = "logout";
+   }
+
+function deconnexion() {   
+        localStorage.removeItem("token");
+        localStorage.removeItem("userId");
+        window.location.reload();    
+}
+statut.addEventListener("click", () => {
+  if(token){
+  deconnexion();
+  window.location.href = './login.html';
+  } 
+  });
+
+
+
 let tousLesProjets = []; // Variable globale pour pouvoir stocker et atteindre les projets
 
 // Fonction pour récupérer et afficher les projets
@@ -147,9 +177,5 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-function desactiverBouton(){
-   document.querySelector("btn").disabled = true;   // Désactiver
-  // document.getElementById("btn").disabled = false; // Réactiver
-}
- 
+
 

@@ -1,29 +1,31 @@
 /*import { logged } from 'main.js';*/
 
 const statut = document.querySelector("#statut");
-const token = localStorage.getItem("token")
 const lienActif = document.querySelector("a.admin")   // récupérer le statut actuel du lien
 
 document.addEventListener("DOMContentLoaded", () => {
+  const token = localStorage.getItem("token");
     if (token) {
         connexion();
     }
 });
 
 function connexion(){
-    lienActif.classList.remove("admin")// rend actif le lien
+   if (lienActif) {
+        lienActif.classList.remove("admin"); // rend actif le lien si admin existe (donc pas dans html_edit)
+    }
     statut.textContent = "logout";
    }
 
-function deconnexion() {   
+function deconnexion() { 
         localStorage.removeItem("token");
         localStorage.removeItem("userId");
-        window.location.reload();    
+        window.location.href = './login.html';   
 }
 statut.addEventListener("click", () => {
+  const token = localStorage.getItem("token");
   if(token){
-  deconnexion();
-  window.location.href = './login.html';
+  deconnexion(); 
   } 
   });
 

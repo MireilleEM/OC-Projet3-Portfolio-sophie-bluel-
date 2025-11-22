@@ -50,6 +50,7 @@
 <div id="popup" class="popup">
   <div class="popup-content">
     <span class="close">&times;</span> <!-- pour fermer -->
+	<div id="option1">
     <h3>Galerie photos</h3>
 	<div class="galleryPopup">
 		<!-- miniatures avec JS-->
@@ -57,8 +58,37 @@
 	<div class ="trait">
 	</div>
 	<button type="button" class="filter-btn active">Ajouter une photo</button>
+	</div>
+<!-- DIV alternative -->
+	<div id="option2">
+    <h3>Ajout photo</h3>
+
+	<div id="uploadZone">
+	<!-- Zone affichée à l'écran -->
+    <div id="zoneBleue">
+        <!--<img src="./assets/icons/picture-icon.svg" id="icon" alt="icone image">-->
+		<i id="iconImage" class="fa-regular fa-image" aria-hidden="true"></i>
+        <label for="photo" id="btnTelecharger">+ Ajouter photo</label>
+        <p>jpg, png : 4mo max</p>
+    <!-- Input file caché -->
+    	<input type="file" id="photo" name="photo" accept="image/*">
+	</div>
+	</div>
+	<!-- mon code à suivre -->
+	<div id="newProjet">
+	<form action="#" method="post">
+            <label for="titre">Titre</label>
+            <input type="name" name="name" id="titre">
+            <label for="categorie">Catégorie</label>
+            <input type="select" name="select" id="categorie">   
+			<div class ="trait2"></div>
+	</div>
+	<button type="button" class="upload">Valider</button>
+	</form>
+	</div>
+	</div>
+	
   </div>
-</div>
 <!-- fin Fenêtre modale -->
  <!-- Nouvelle Div mes projets -->
 		<div id = "modif">
@@ -70,10 +100,7 @@
 			</div>
 		</div>
 		<div class="gallery">
-			<!--<figure>
-				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
-				<figcaption>Abajour Tahina</figcaption>
-			</figure>-->
+			<!--<figures>-->
 		</div>
 	</section>
 	<section id="contact">

@@ -51,7 +51,6 @@ footer, header, hgroup, menu, nav, section{
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
 }
-
 .popup-content {
   background-color: white;
   margin: 10% auto;
@@ -98,12 +97,131 @@ footer, header, hgroup, menu, nav, section{
     top: 5px;       /* Position en haut */
     right: 5px;     /* Position à droite */  
 }
+/********* Option2 ********/
 
-.trait{
+#option2 {
+    width: 80%;
+    margin: auto;
+}
+#option2 > * {
+    text-align: center;
+}
+
+#option2 h2{
+    margin-bottom: 20px;
+}
+#option2 form {
+    text-align: left;
+    margin-top:10px;
+    display: flex;
+    flex-direction: column;
+}
+
+#option2 input {
+    height: 50px;
+    font-size: 1.2em;
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#option2 label {
+    margin: 2em 0 1em 0; 
+}
+.trait2{
     border-bottom: 1px solid #B3B3B3;
-    margin: 10px 60px 30px 60px;
+    margin: 20px 60px 20px 60px;
     justify-content: center;
 }
+ 
+.upload{   
+    height: 37px;
+    width: 60%;
+    font-family: 'Syne';
+    font-weight: 700;
+    color: white;
+    background-color: #A7A7A7;
+    padding: 10px 20px; 
+    text-align: center;
+    border-radius: 60px;
+    border: none;
+    margin: 0; /* Supprime les marges autour des boutons */
+    flex-shrink: 0; /* Empêche les boutons de rétrécir */
+    cursor: pointer;
+}
+#btnTelecharger {
+    display: block;
+    font-family: 'Syne';
+    font-weight: 700;
+    background-color: #CBD6DC;
+    color: #306685;
+    width: 40%;
+    padding: 10px 20px;
+    border-radius: 60px;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* Cache complètement l’input file */
+#photo {
+    display: none;
+}
+#option1, #option1 * {
+    display: none;
+}
+
+/* Zone bleue */
+#uploadZone {
+    background: #E8F1F6;
+    height: 160px;
+    border-radius: 5px;
+    margin-top: 20px;
+    
+}
+
+/* Icon placeholder */
+#option2 i {
+    font-size: 75px;
+    color: #B9C5CC;
+    margin: 8px;
+}
+
+/* Texte formats */
+#zoneBleue p {
+    font-size: 12px;
+    color: #306685;
+    margin-top: 1px;
+}
+#zoneBleue label {
+    margin: 0;
+    display: block; 
+    width: 30%;
+}
+#zoneBleue{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* c'est le bon vraiment*/
+    gap: 4px;
+    
+}
+/********* fin Option 2 ********/
+/****** 1ere zone bleue 
+
+
+
+#preview {
+    max-height: 180px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/*************/
 
 /* Bouton de fermeture */
 .close {
@@ -168,12 +286,7 @@ h3{
     font-size:26px;
     font-weight: 400;
 }
-/*figcaption p{
-    font-family: 'Work Sans';
-    font-size:13px;
-    letter-spacing: 0.1em;
-    font-weight: 400;
-}*/
+
 h2{
     font-family: 'Syne';
     font-weight: 700;
@@ -253,43 +366,21 @@ li :hover {
     grid-column-gap: 20px;
     grid-row-gap: 20px;
 }
-
-/*.popup-content{
-    display: flex;
-    flex-direction: column;
-    gap: 46px;
-    justify-content: center;
-}*/
+/********* CONTACT ********/
 
 #contact {
     width: 50%;
-    margin: auto;
-}
-#login {
-    width: 30%;
     margin: auto;
 }
 #contact > * {
     text-align: center;
 
 }
-#login > * {
-    text-align: center;
-
-}
 #contact h2{
     margin-bottom: 20px;
 }
-#login h2{
-    margin-bottom: 20px;
-}
+
 #contact form {
-    text-align: left;
-    margin-top:30px;
-    display: flex;
-    flex-direction: column;
-}
-#login form {
     text-align: left;
     margin-top:30px;
     display: flex;
@@ -302,22 +393,47 @@ li :hover {
     border: none;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#login input {
-    height: 50px;
-    font-size: 1.2em;
-    border: none;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-}
 #contact label {
-    margin: 2em 0 1em 0;
-}
-#login label {
     margin: 2em 0 1em 0;
 }
 #contact textarea {
     border: none;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+/********* fin CONTACT ********/
+/********* LOGIN ********/
+
+#login {
+    width: 30%;
+    margin: auto;
+}
+#login > * {
+    text-align: center;
+}
+
+#login h2{
+    margin-bottom: 20px;
+}
+#login form {
+    text-align: left;
+    margin-top:30px;
+    display: flex;
+    flex-direction: column;
+}
+
+#login input {
+    height: 50px;
+    font-size: 1.2em;
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#login label {
+    margin: 2em 0 1em 0;
+}
+
+/********* fin LOGIN ********/
+
 
 input[type="submit"]{
     font-family: 'Syne';
@@ -333,31 +449,7 @@ input[type="submit"]{
     text-align: center;
     text-decoration: underline;
 }
-/*
-.boutons{
-    display: flex;
-    margin: 51px 0 51px 0;
-    gap: 10px;
-}
-button{
-    height: 37px;
-    font-family: 'Syne';
-    font-weight: 700;
-    color: #1D6154;
-    background-color: transparent;
-    width: fit-content;
-    min-width: 100px;
-    margin : 2em auto ;
-    padding: 10px;
-    text-align: center;
-    border-radius: 60px ;
-    border: solid 1px#1D6154;
-}
-button:hover{
-    color: white;
-    background-color: #1D6154;
-}
-    */
+
 .boutons {
     display: flex;
     justify-content: center; /* Centre les boutons horizontalement */

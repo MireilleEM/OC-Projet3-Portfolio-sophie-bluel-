@@ -1,25 +1,34 @@
-/*import { logged } from 'main.js';*/
+//vérification de la connexion au chargement de la page /
 
 const statut = document.querySelector("#statut");
-const lienActif = document.querySelector("a.admin")   // récupérer le statut actuel du lien
+const lienActif = document.querySelector("a.admin") 
+const bandeau = document.querySelector(".bandeau2")
+const divModif = document.querySelector(".modif") 
+const divFiltres = document.querySelector(".ensFiltres") 
+  // récupérer le statut actuel du lien
 
 document.addEventListener("DOMContentLoaded", () => {
   const token = localStorage.getItem("token");
     if (token) {
         connexion();
-    }
+    } 
 });
 
 function connexion(){
-   if (lienActif) {
         lienActif.classList.remove("admin"); // rend actif le lien si admin existe (donc pas dans html_edit)
+        bandeau.classList.remove("masque");
+        divModif.classList.remove("masque");
+        divFiltres.classList.add("masque");
+        
+        statut.textContent = "logout";
     }
-    statut.textContent = "logout";
-   }
+    
+
 
 function deconnexion() { 
         localStorage.removeItem("token");
         localStorage.removeItem("userId");
+        
         window.location.href = './login.html';   
 }
 statut.addEventListener("click", () => {
@@ -69,12 +78,18 @@ function afficherProjets(listeProjets) {
 
 // Fonction pour récupérer et afficher les catégories dans les boutons:
 async function chargerCategories() {
+
+  console.log("Début de chargerCategories");//debug
+
     const response_cat = await fetch(`http://localhost:5678/api/categories`);
     const categories = await response_cat.json();
 
     // On récupère le conteneur des boutons
     const divBoutons = document.querySelector(".boutons");
-
+ if (!divBoutons) {
+    console.error("Élément .boutons introuvable ! Vérifie que le DOM est complètement chargé.");
+    return;
+  } //debug
     // On initialise une chaîne vide pour construire le HTML
     let boutonsHTML = `<button type="button" class="filter-btn active">Tous</button>`;// active enlevé
 
@@ -90,7 +105,7 @@ async function chargerCategories() {
         /*boutonsHTML += `<button type="button" class="filter-btn" data-category="${categorie.name}">${categorie.name}</button>`;
         }
         divBoutons.innerHTML = boutonsHTML;*/
-
+console.log("Boutons ajoutés au DOM"); // Log pour confirmation
 
 // On sélectionne maintenant les boutons créés
 const allButtons = document.querySelectorAll(".filter-btn");
@@ -124,13 +139,14 @@ allButtons[j].addEventListener("click", function() {
     }); */  
 })
 }
+
 }
 // On lance les fonctions
 chargerProjets();
 chargerCategories();
 
 
-//MODALE
+//fonctionnement MODALE
 // Récupère les éléments du DOM
 const popup = document.querySelector("#popup");
 const openPopup = document.querySelector("#openPopup");
@@ -144,19 +160,19 @@ openPopup.addEventListener("click", () => {
 
 function afficherProjetsPopup(tousLesProjets) {
   const galleryPopup = document.querySelector(".galleryPopup");
-  let figuresHTML = "";
+  let figuresHTML2 = "";
   for (let i = 0; i < tousLesProjets.length; i++) {
             const monprojet = tousLesProjets[i];
-            figuresHTML += `
+            figuresHTML2 += `
                 <figure class="miniature">
                     <img src="${monprojet.imageUrl}" alt="${monprojet.title}">
-                    <i id="poubelle" class="fa-regular fa-trash-alt" aria-hidden="true"></i>
+                    <i class ="poubelle fa-regular fa-trash-alt" aria-hidden="true"></i>
                 </figure>
             `;
 }
         // On ajoute les nouvelles figures à la galerie sans vider le contenu existant
-        galleryPopup.innerHTML = figuresHTML;
-
+        galleryPopup.innerHTML = figuresHTML2;
+suppression();
 };
 
 
@@ -180,4 +196,80 @@ document.addEventListener("keydown", (event) => {
 });
 
 
+const allPoubelles = document.querySelectorAll(".poubelle");
+//console.log("Nombre de poubelles trouvées :", allPoubelles.length); // Debug
 
+function suppression(){
+  for (let k = 0; k < allPoubelles.length; k++) {
+    let supp = allPoubelles[k]
+    supp.addEventListener("click", function() {
+    //
+    console.log("Clic détecté sur la poubelle", k); // Debug
+    alert("suppression de l'élément " + k) ;  
+    });
+  }
+};
+
+
+
+/*document.addEventListener("click", function(e) {
+    if (e.target.classList.contains("poubelle")) {
+        const miniature = e.target.closest(".miniature");
+        if (miniature) {
+            alert("Suppression de la miniature");
+            miniature.remove();
+        }
+    }
+});*/
+
+
+
+
+/*function setupSuppression() {
+    allPoubelles.forEach((poubelle, index) => {
+        poubelle.addEventListener("click", function() {
+            // Trouve la figure parent et la supprime
+            const miniature = this.closest(".miniature");
+            if (miniature) {
+                miniature.remove();
+            }
+        });
+    });
+}*/
+
+
+// remplir select:
+
+async function listerCategories() {
+    const response_cat = await fetch(`http://localhost:5678/api/categories`);
+    const categories = await response_cat.json();
+    return categories;
+    
+}
+
+function listeSelect(donnees) {
+  const selectInput = document.querySelector("#listeCategories");
+  selectInput.innerHTML = ''; // select vide
+
+  // Je parcours les données et ajoute chaque option
+  donnees.forEach(item => {
+    const baliseOption = document.createElement("option");
+    baliseOption.textContent = item.name; 
+    selectInput.appendChild(baliseOption);
+  });
+}
+async function remplirSelect() {
+    const categories = await listerCategories();
+    listeSelect(categories);
+}
+remplirSelect();
+
+
+const ajoutPhoto = document.querySelector(".ajoutPhoto")
+const option1 = document.querySelector(".option1");
+const option2 = document.querySelector(".option2");
+ajoutPhoto.addEventListener("click", function(){
+        option1.classList.add("masque");
+        option2.classList.remove("masque");
+        //chargerProjets();
+});

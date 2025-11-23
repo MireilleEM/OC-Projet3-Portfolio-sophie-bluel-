@@ -46,7 +46,7 @@ async function authentification(){
     }
    
      // Redirige vers une page protégée par authentification
-     window.location.href = './index.html';
+     window.location.href = './index_global.html';
      
 }
 

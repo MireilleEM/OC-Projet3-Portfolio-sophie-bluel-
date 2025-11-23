@@ -7,27 +7,25 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<meta name="description" content="">
-	<link rel="stylesheet" href="./assets/style.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="./assets/style_global.css">
 	<script src="scripts/config.js" defer></script>
 	<script src="scripts/script.js" defer></script>
 	<script src="scripts/main.js" defer></script>
 </head>
 <body>
-	<div class="bandeau">
+	<div class="bandeau2 masque">
 		<i class="fa-regular fa-pen-to-square" aria-hidden="true"></i>
 		<p>mode édition</p>
 	</div>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
-	<nav>		
+	<nav>
 		<ul>
-			<li><a href="./index.html">projets</a></li>
+			<li><a href="#" class="admin">projets</a></li>
 			<li><a href="#contact">contact</a></li>
-			<li id="statut"><a href="login.html">login</a></li>
+			<li><a id="statut" href="login.html">login</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -46,21 +44,21 @@
 	</section>
 	<section id="portfolio">
 
-<!-- Fenêtre modale (masquée par défaut) -->
+		<!-- Fenêtre modale (masquée par défaut) -->
 <div id="popup" class="popup">
   <div class="popup-content">
     <span class="close">&times;</span> <!-- pour fermer -->
-	<div id="option1">
+	<div class="option1">
     <h3>Galerie photos</h3>
 	<div class="galleryPopup">
 		<!-- miniatures avec JS-->
 	</div>
 	<div class ="trait">
 	</div>
-	<button type="button" class="filter-btn active">Ajouter une photo</button>
+	<button type="button" class="active ajoutPhoto">Ajouter une photo</button>
 	</div>
 <!-- DIV alternative -->
-	<div id="option2">
+	<div class="option2 masque">
     <h3>Ajout photo</h3>
 
 	<div id="uploadZone">
@@ -81,7 +79,7 @@
             <input type="name" name="name" id="titre">
             <label for="categorie">Catégorie</label>
             <select type="select" name="select" id="listeCategories"> 				
-  				<option value="">Chargement...</option>
+  				<option value="">Catégorie 1...</option>
 			</select>  
 			<div class ="trait2"></div>
 	</div>
@@ -92,17 +90,34 @@
 	
   </div>
 <!-- fin Fenêtre modale -->
- <!-- Nouvelle Div mes projets -->
-		<div id = "modif">
+
+
+		<div class = "ensFiltres">
 			<h2>Mes Projets</h2>
-			<div class="modif">
+
+			<div class = "filtres">
+				<form method="get" action="">   
+                    <div class="boutons">             
+     <!-- <button type="button" class="filter-btn active">Tous</button> -->
+                    </div>                 
+                </form>
+			</div>			
+		</div>
+	<!-- Div alternative pour modifier mes projets -->
+		<div class="modif masque">
+			<h2>Mes Projets</h2>
+			<div id="modif">
 				<p>modifier</p>
 				<i id="openPopup" class="fa-regular fa-pen-to-square" aria-hidden="true"></i>
 				<!-- icone pour ouvrir la modale -->
 			</div>
 		</div>
+	   
 		<div class="gallery">
-			<!--<figures>-->
+			<!--<figure>
+				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
+				<figcaption>Abajour Tahina</figcaption>
+			</figure>-->
 		</div>
 	</section>
 	<section id="contact">

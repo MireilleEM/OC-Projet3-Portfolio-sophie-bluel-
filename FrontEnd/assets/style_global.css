@@ -154,15 +154,18 @@ footer, header, hgroup, menu, nav, section{
 }
 
 .option2 input, select {
+    font-family: Arial, Helvetica, sans-serif;
+    color:#444444;
+    font-size: 14px;
     height: 50px;
     font-size: 1.2em;
     border: none;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 .option2 label {
-    margin: 2em 0 1em 0; 
+    margin: 1em 0 1em 0; 
 }
-.trait2{
+.trait{
     border-bottom: 1px solid #B3B3B3;
     margin: 20px 60px 20px 60px;
     justify-content: center;
@@ -196,9 +199,8 @@ footer, header, hgroup, menu, nav, section{
     cursor: pointer;
 }
 
-/* Cache complètement l’input file */
 #photo {
-    display: none;
+    display: none; /* Cache complètement l’input file */
 }
 /* Zone bleue */
 #uploadZone {
@@ -343,6 +345,7 @@ li a{
 li :hover {
     color: #B1663C;
 }
+/************* Partie introduction *************/
 #introduction {
     display: flex;
     align-items: center;

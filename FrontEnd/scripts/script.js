@@ -5,7 +5,7 @@ const lienActif = document.querySelector("a.admin")
 const bandeau = document.querySelector(".bandeau2")
 const divModif = document.querySelector(".modif") 
 const divFiltres = document.querySelector(".ensFiltres") 
-  // récupérer le statut actuel du lien
+  // récupérer les différents éléments
 
 document.addEventListener("DOMContentLoaded", () => {
   const token = localStorage.getItem("token");
@@ -24,7 +24,7 @@ function connexion(){
     }
     
 
-
+// déconnexion en cliquant sur logout
 function deconnexion() { 
         localStorage.removeItem("token");
         localStorage.removeItem("userId");
@@ -39,10 +39,10 @@ statut.addEventListener("click", () => {
   });
 
 
-
+// Afficher les projets sur la page :
 let tousLesProjets = []; // Variable globale pour pouvoir stocker et atteindre les projets
 
-// Fonction pour récupérer et afficher les projets
+// Fonction pour récupérer et afficher les projets de l'API:
 async function chargerProjets() {
     const response = await fetch(`http://localhost:5678/api/works`);
     tousLesProjets = await response.json();
@@ -50,7 +50,7 @@ async function chargerProjets() {
     afficherProjets(tousLesProjets); // On appelle une fonction séparée pour afficher tout au début
 }
 
-// Fonction pour afficher les projets (utile aussi pour le filtrage)
+// Fonction globale pour afficher les projets (utile aussi pour le filtrage):
 function afficherProjets(listeProjets) {
         // On récupère le conteneur gallery
         const sectionGallery = document.querySelector(".gallery");
@@ -73,23 +73,16 @@ function afficherProjets(listeProjets) {
         sectionGallery.innerHTML = figuresHTML;
 
 };
-
 //chargerProjets();
 
 // Fonction pour récupérer et afficher les catégories dans les boutons:
 async function chargerCategories() {
-
-  console.log("Début de chargerCategories");//debug
-
     const response_cat = await fetch(`http://localhost:5678/api/categories`);
     const categories = await response_cat.json();
 
     // On récupère le conteneur des boutons
     const divBoutons = document.querySelector(".boutons");
- if (!divBoutons) {
-    console.error("Élément .boutons introuvable ! Vérifie que le DOM est complètement chargé.");
-    return;
-  } //debug
+
     // On initialise une chaîne vide pour construire le HTML
     let boutonsHTML = `<button type="button" class="filter-btn active">Tous</button>`;// active enlevé
 
@@ -101,22 +94,15 @@ async function chargerCategories() {
 
     // On ajoute les nouvelles figures à la galerie sans vider le contenu existant
     divBoutons.innerHTML = boutonsHTML;
-        // On ajoute les boutons au DOM
-        /*boutonsHTML += `<button type="button" class="filter-btn" data-category="${categorie.name}">${categorie.name}</button>`;
-        }
-        divBoutons.innerHTML = boutonsHTML;*/
-console.log("Boutons ajoutés au DOM"); // Log pour confirmation
 
-// On sélectionne maintenant les boutons créés
-const allButtons = document.querySelectorAll(".filter-btn");
+    // On sélectionne maintenant les boutons créés
+    const allButtons = document.querySelectorAll(".filter-btn");
 
-// Logique pour afficher la catégorie concernée
-for (let j = 0; j < allButtons.length; j++) {
-allButtons[j].addEventListener("click", function() {
-    //let filtre = allButtons[j].textContent; 
-    let filtre = this.textContent; // On récupère la catégorie
-    //const filtre = this.getAttribute("data-category");
-    console.log(filtre); 
+    // Logique pour afficher la catégorie concernée
+    for (let j = 0; j < allButtons.length; j++) {
+      allButtons[j].addEventListener("click", function() {
+      //let filtre = allButtons[j].textContent; 
+      let filtre = this.textContent; // On récupère la catégorie
     // On met à jour le style (bouton actif)
       allButtons.forEach((btn) => btn.classList.remove("active"));
       this.classList.add("active");
@@ -131,12 +117,6 @@ allButtons[j].addEventListener("click", function() {
         );
         afficherProjets(projetsFiltres);
       }
-
-    //le mien:
-     /* console.log(filtre); 
-    const projetsFiltres = projets.filter(function (projet) {
-        return projet.category.name === filtre;
-    }); */  
 })
 }
 
@@ -158,6 +138,7 @@ openPopup.addEventListener("click", () => {
   afficherProjetsPopup(tousLesProjets);
 });
 
+// Afficher les miniatures dans la modale
 function afficherProjetsPopup(tousLesProjets) {
   const galleryPopup = document.querySelector(".galleryPopup");
   let figuresHTML2 = "";
@@ -195,48 +176,21 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-
-const allPoubelles = document.querySelectorAll(".poubelle");
-//console.log("Nombre de poubelles trouvées :", allPoubelles.length); // Debug
+// Vider les miniatures en cliquant sur la poubelle:
 
 function suppression(){
-  for (let k = 0; k < allPoubelles.length; k++) {
-    let supp = allPoubelles[k]
-    supp.addEventListener("click", function() {
-    //
-    console.log("Clic détecté sur la poubelle", k); // Debug
-    alert("suppression de l'élément " + k) ;  
-    });
-  }
-};
-
-
-
-/*document.addEventListener("click", function(e) {
-    if (e.target.classList.contains("poubelle")) {
-        const miniature = e.target.closest(".miniature");
-        if (miniature) {
-            alert("Suppression de la miniature");
-            miniature.remove();
-        }
-    }
-});*/
-
-
-
-
-/*function setupSuppression() {
-    allPoubelles.forEach((poubelle, index) => {
-        poubelle.addEventListener("click", function() {
+  const allPoubelles = document.querySelectorAll(".poubelle");
+  //allPoubelles.forEach((poubelle) => {
+    for (let k = 0; k < allPoubelles.length; k++){
+        let supp = allPoubelles[k]
+        supp.addEventListener("click", function() {
             // Trouve la figure parent et la supprime
             const miniature = this.closest(".miniature");
-            if (miniature) {
-                miniature.remove();
-            }
-        });
-    });
-}*/
-
+            miniature.remove();
+          });
+        }; 
+      }
+  
 
 // remplir select:
 
@@ -246,7 +200,6 @@ async function listerCategories() {
     return categories;
     
 }
-
 function listeSelect(donnees) {
   const selectInput = document.querySelector("#listeCategories");
   selectInput.innerHTML = ''; // select vide
